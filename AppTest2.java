@@ -97,6 +97,12 @@ public class AppTest2 {
         ContinueBtn.click();
     }
     @Test(dependsOnMethods = "FillOutDetails", priority = 9)
+    public void Finish() {
+        driver.findElement(By.id("finish")).click();
+        Assert.assertEquals(driver.findElement(By.xpath("//div[@id='checkout_complete_container']/h2")).getText(),
+        "THANK YOU FOR YOUR ORDER");
+    }
+    @Test(dependsOnMethods = "FillOutDetails", priority = 10)
     public void ExitandLogout() {
         burgerMenu = driver.findElement(By.className("bm-burger-button"));
         burgerMenu.click();
