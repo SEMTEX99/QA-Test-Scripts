@@ -8,14 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class AppTest {
     WebDriver driver;
     WebDriverWait wait;
     WebElement burgerMenu;
-    @BeforeTest
+
+    @BeforeClass
     public void LaunchBrave() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\BraveSoftware\\chromedriver_win32\\chromedriver.exe");
         ChromeOptions options=new ChromeOptions();

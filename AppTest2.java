@@ -10,8 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 
 public class AppTest2 {
     WebDriver driver;
@@ -21,7 +22,7 @@ public class AppTest2 {
     WebElement Bck2ProductsBtn;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeTest
+    @BeforeClass
     public void LaunchBrave() {
         System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\BraveSoftware\\chromedriver_win32\\chromedriver.exe");
         ChromeOptions options=new ChromeOptions();
@@ -49,7 +50,8 @@ public class AppTest2 {
     @Test(dependsOnMethods = "sauceLabsBackpackClick", priority = 2)
     public void BackpackPriceVerify() throws Exception {
         try {
-        Assert.assertEquals(driver.findElement(By.xpath("//div[@id='inventory_item_container']/div/div/div[2]/div")).getText(), "Sauce Labs Backpack");
+        Assert.assertEquals(driver.findElement(By.xpath("//div[@id='inventory_item_container']/div/div/div[2]/div")).getText(), 
+        "Sauce Labs Backpack");
         Assert.assertEquals(driver.findElement(By.xpath("//div[@class='inventory_details_desc large_size']")).getText(), 
         "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.");
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='inventory_item_container']/div/div/div[2]/div[3]")).getText(),
@@ -110,6 +112,7 @@ public class AppTest2 {
         WebElement Logout_btn = driver.findElement(By.id("logout_sidebar_link"));
         Logout_btn.click();
     }
+
 
     @AfterClass (alwaysRun = true)
     public void CloseBrowser() {
